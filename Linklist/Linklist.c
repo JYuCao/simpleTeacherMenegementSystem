@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 /* 内部函数声明 */
-//拷贝新内容到新节点
+// 拷贝新内容到新节点
 static void CopyToNode(Item item, Node *pnode);
 
 /* 函数定义 */
-//初始化链表头指针
+// 初始化链表头指针
 void InitializeList(List *plist)
 {
     plist->head = NULL;
@@ -15,7 +15,7 @@ void InitializeList(List *plist)
     plist->size = 0;
 }
 
-//检查链表是否为空
+// 检查链表是否为空
 bool ListIsEmpty(const List *plist)
 {
     if (plist->size == 0)
@@ -24,7 +24,7 @@ bool ListIsEmpty(const List *plist)
         return false;
 }
 
-//检查链表是否已满
+// 检查链表是否已满
 bool ListIsFull(const List *plist)
 {
     if (plist->size >= MAXSIZE)
@@ -33,13 +33,13 @@ bool ListIsFull(const List *plist)
         return false;
 }
 
-//确定链表项数
+// 确定链表项数
 unsigned ListItemCount(const List *plist)
 {
     return plist->size;
 }
 
-//在链表末尾增添项
+// 在链表末尾增添项
 bool AddItem(Item item, List *plist)
 {
     Node *pnew;
@@ -65,7 +65,7 @@ bool AddItem(Item item, List *plist)
     return true;
 }
 
-//在链表中插入项
+// 在链表中插入项
 bool InsertItem(Item item, List *plist, int i)
 {
     Node *pnew;
@@ -103,14 +103,17 @@ bool InsertItem(Item item, List *plist, int i)
         if (j != i - 1)
             return false;
 
-        if (ptemp->prev) {
+        if (ptemp->prev)
+        {
             pnew->prev = ptemp->prev;
             pnew->prev->next = pnew;
             pnew->next = ptemp;
-        } else {
+        }
+        else
+        {
             pnew->prev = NULL;
             pnew->next = ptemp;
-            plist->head = pnew;  
+            plist->head = pnew;
         }
         ptemp->prev = pnew;
     }
@@ -118,7 +121,7 @@ bool InsertItem(Item item, List *plist, int i)
     return true;
 }
 
-//在链表中删除项
+// 在链表中删除项
 bool DeleteItem(List *plist, int i)
 {
     Node *ptemp;
@@ -127,18 +130,23 @@ bool DeleteItem(List *plist, int i)
     if (ListIsEmpty(plist))
         return false;
 
-    if (i == 0) {
-        if (plist->head = plist->end)
+    ptemp = plist->head;
+
+    if (i == 0)
+    {
+        if (plist->head == plist->end)
             plist->head = plist->end = NULL;
-        else {
+        else
+        {
             plist->head = ptemp->next;
             ptemp->next->prev = NULL;
         }
+        free(ptemp->item.lesson);
+        free(ptemp->item.name);
         free(ptemp);
         return true;
     }
 
-    ptemp = plist->head;
     while (ptemp->next && j < i - 1)
     {
         ptemp = ptemp->next;
@@ -164,7 +172,7 @@ bool DeleteItem(List *plist, int i)
     return true;
 }
 
-//指向的函数作用于链表每一项一次（正序）
+// 指向的函数作用于链表每一项一次（正序）
 void Traverse(const List *plist, void (*pfun)(Item item))
 {
     Node *pt = plist->head;
@@ -176,7 +184,7 @@ void Traverse(const List *plist, void (*pfun)(Item item))
     }
 }
 
-//释放链表内存，设置链表为空
+// 释放链表内存，设置链表为空
 void EmptyTheList(List *plist)
 {
     Node *psave;
@@ -189,9 +197,8 @@ void EmptyTheList(List *plist)
     }
 }
 
-
 /* 内部函数 */
-//拷贝新内容到新节点
+// 拷贝新内容到新节点
 static void CopyToNode(Item item, Node *pnode)
 {
     pnode->item = item;
