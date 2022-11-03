@@ -6,9 +6,6 @@
 //拷贝新内容到新节点
 static void CopyToNode(Item item, Node *pnode);
 
-//打印节点内容
-static void NodePrint(Item item);
-
 /* 函数定义 */
 //初始化链表头指针
 void InitializeList(List *plist)
@@ -184,10 +181,4 @@ void EmptyTheList(List *plist)
 static void CopyToNode(Item item, Node *pnode)
 {
     pnode->item = item;
-}
-
-//打印节点内容
-static void NodePrint(Item item)
-{
-    
 }

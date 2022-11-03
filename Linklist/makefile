@@ -1,4 +1,4 @@
-objects = main.o Linklist.o SMS_Linklist.o
+objects = main.o Linklist.o TMS_Linklist.o
 CC = cc
 CPPFLAGS = 
 
