@@ -6,7 +6,7 @@
 
 /* 函数声明 */
 // 显示菜单
-void showMenu(void);
+void showMenu(List * plist);
 
 // 添加新信息
 bool addInfo(List * plist);
@@ -19,6 +19,9 @@ bool delInfo(List * plist);
 
 // 清空输入缓冲区
 void eatline(void);
+
+// 暂停
+void pause(void);
 
 // 延时
 void delay(void);

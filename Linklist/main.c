@@ -4,5 +4,11 @@
 
 int main(void)
 {
-    showMenu();
+    List teachersList;
+
+    InitializeList(&teachersList);
+    showMenu(&teachersList);
+    EmptyTheList(&teachersList);
+
+    return 0;
 }

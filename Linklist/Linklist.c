@@ -158,6 +158,8 @@ bool DeleteItem(List *plist, int i)
         plist->end = ptemp->prev;
 
     --plist->size;
+    free(ptemp->item.lesson);
+    free(ptemp->item.name);
     free(ptemp);
     return true;
 }
