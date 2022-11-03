@@ -2,6 +2,13 @@
 
 #include <stdlib.h>
 
+/* 内部函数声明 */
+//拷贝新内容到新节点
+static void CopyToNode(Item item, Node *pnode);
+
+//打印节点内容
+static void NodePrint(Item item);
+
 /* 函数定义 */
 //初始化链表头指针
 void InitializeList(List *plist)
@@ -171,15 +178,16 @@ void EmptyTheList(List *plist)
     }
 }
 
+
+/* 内部函数 */
 //拷贝新内容到新节点
-void CopyToNode(Item item, Node *pnode)
+static void CopyToNode(Item item, Node *pnode)
 {
     pnode->item = item;
 }
 
 //打印节点内容
-void NodePrint(Item item)
+static void NodePrint(Item item)
 {
-    printf("ID:%s\tName:%s\tGrade:%.1f\n",
-           item.id, item.name, item.grade);
+    
 }

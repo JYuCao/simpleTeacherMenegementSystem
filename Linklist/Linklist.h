@@ -11,9 +11,8 @@
 
 typedef struct item
 { //链表中存储内容，按需修改
-    char id[3];
-    char name[10];
-    float grade;
+    char * name;
+    char * lesson;
 } Item;
 
 /* 一般类型定义 */
@@ -60,11 +59,5 @@ void Traverse(const List *plist, void (*pfun)(Item item));
 
 //释放链表内存，设置链表为空
 void EmptyTheList(List *plist);
-
-//拷贝新内容到新节点
-void CopyToNode(Item item, Node *pnode);
-
-//打印节点内容
-void NodePrint(Item item);
 
 #endif
