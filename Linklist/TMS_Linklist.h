@@ -23,4 +23,7 @@ void eatline(void);
 // 延时
 void delay(void);
 
+// 清屏
+void clear(void);
+
 #endif

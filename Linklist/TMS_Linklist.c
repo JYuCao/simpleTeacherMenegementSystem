@@ -11,7 +11,7 @@ static void NodePrint(Item * item);
 // 显示菜单
 void showMenu(void)
 {
-    system("cls");
+    clear();
 
     printf("*******************************************************\n");
     printf("1. Add new information\n");
@@ -67,6 +67,12 @@ void eatline(void)
 void delay(void)
 {
     Sleep(3000);
+}
+
+// 清屏
+void clear(void)
+{
+    system("cls");
 }
 
 /* 内部函数定义 */
