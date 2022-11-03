@@ -127,12 +127,24 @@ bool DeleteItem(List *plist, int i)
     if (ListIsEmpty(plist))
         return false;
 
+    if (i == 0) {
+        if (plist->head = plist->end)
+            plist->head = plist->end = NULL;
+        else {
+            plist->head = ptemp->next;
+            ptemp->next->prev = NULL;
+        }
+        free(ptemp);
+        return true;
+    }
+
     ptemp = plist->head;
     while (ptemp->next && j < i - 1)
     {
         ptemp = ptemp->next;
         ++j;
     }
+
     if (j != i - 1)
         return false;
     ptemp = ptemp->next;

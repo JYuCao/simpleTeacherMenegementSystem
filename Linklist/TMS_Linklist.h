@@ -9,13 +9,13 @@
 void showMenu(void);
 
 // 添加新信息
-void addInfo(List * plist);
+bool addInfo(List * plist);
 
 // 打印所有信息
 void showInfo(List * plist);
 
 // 删除信息
-void delInfo(List * plist);
+bool delInfo(List * plist);
 
 // 清空输入缓冲区
 void eatline(void);
