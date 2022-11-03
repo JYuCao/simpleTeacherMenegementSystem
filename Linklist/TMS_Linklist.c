@@ -7,6 +7,18 @@
 // 打印节点内容
 static void NodePrint(Item item);
 
+// 清空输入缓冲区
+static void eatline(void);
+
+// 暂停
+static void pause(void);
+
+// 延时
+static void delay(void);
+
+// 清屏
+static void clear(void);
+
 /* 函数定义 */
 // 显示菜单
 void showMenu(List *plist)
@@ -167,33 +179,33 @@ bool delInfo(List *plist)
     return status;
 }
 
+/* 内部函数定义 */
 // 清空输入缓冲区
-void eatline(void)
+static void eatline(void)
 {
     while (getchar() != '\n')
         ;
 }
 
 // 暂停
-void pause(void)
+static void pause(void)
 {
     Sleep(500);
     system("pause");
 }
 
 // 延时
-void delay(void)
+static void delay(void)
 {
     Sleep(2000);
 }
 
 // 清屏
-void clear(void)
+static void clear(void)
 {
     system("cls");
 }
 
-/* 内部函数定义 */
 // 打印节点内容
 static void NodePrint(Item item)
 {

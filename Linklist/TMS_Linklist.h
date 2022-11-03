@@ -17,16 +17,4 @@ void showInfo(List * plist);
 // 删除信息
 bool delInfo(List * plist);
 
-// 清空输入缓冲区
-void eatline(void);
-
-// 暂停
-void pause(void);
-
-// 延时
-void delay(void);
-
-// 清屏
-void clear(void);
-
 #endif
