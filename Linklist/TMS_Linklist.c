@@ -130,7 +130,7 @@ bool delInfo(List *plist)
         {
             if (!strcmp(tNode->item.name, temp))
             {
-                DeleteItem(plist, i);
+                DeleteItem(plist, i--);
                 if (!status)
                     status = true;
             }
@@ -145,7 +145,7 @@ bool delInfo(List *plist)
         {
             if (!strcmp(tNode->item.lesson, temp))
             {
-                DeleteItem(plist, i);
+                DeleteItem(plist, i--);
                 if (!status)
                     status = true;
             }
@@ -162,7 +162,7 @@ bool delInfo(List *plist)
         {
             if (!strcmp(tNode->item.name, temp) && !strcmp(tNode->item.lesson, temp2))
             {
-                DeleteItem(plist, i);
+                DeleteItem(plist, i--);
                 if (!status)
                     status = true;
             }
