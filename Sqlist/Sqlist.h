@@ -1,5 +1,5 @@
 #ifndef _SQLIST_H
-#define _SQLSIT_H
+#define _SQLIST_H
 
 #define true 1
 #define false 0
