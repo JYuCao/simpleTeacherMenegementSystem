@@ -1,14 +1,14 @@
-#include "Linklist.h"
-#include "TMS_Linklist.h"
+#include "Sqlist.h"
+#include "TMS_Sqlist.h"
 #include <stdio.h>
 
 int main(void)
 {
     List teachersList;
 
-    InitializeList(&teachersList);
+    InitializeItem(&teachersList);
     showMenu(&teachersList);
-    EmptyTheList(&teachersList);
+    EmptyTheItem(&teachersList);
 
     return 0;
 }

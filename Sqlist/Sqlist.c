@@ -1,7 +1,6 @@
 #include "Sqlist.h"
 
-//局部函数，拷贝新内容到新节点
-static void CopyToList(Item item, Item entries[]);
+#include <stdlib.h>
 
 /* 接口函数定义 */
 //初始化项数组
@@ -63,5 +62,15 @@ void Traverse(const List * list, void (*pfun)(Item item))
 {
     for (int i = 0; i < list->items; ++i) {
         (*pfun)(list->entries[i]);
+    }
+}
+
+//清空项数组
+void EmptyTheItem(List * list)
+{
+    for ( ; list->items > 0; --list->items)
+    {
+        free(list->entries[list->items - 1].lesson);
+        free(list->entries[list->items - 1].name);
     }
 }

@@ -6,7 +6,6 @@
 #define bool int
 
 #define MAXSIZE 100
-#define TSIZE 45
 
 typedef struct item {      //项数组中存储内容，按需修改
     char * name;
@@ -14,7 +13,6 @@ typedef struct item {      //项数组中存储内容，按需修改
 } Item;
 
 /* 一般类型定义 */
-
 typedef struct list {
     Item entries[MAXSIZE];
     int items;
@@ -36,10 +34,13 @@ unsigned ItemItemCount(const List * list);
 //在项数组增添项
 bool AddItem(Item item, List * list);
 
-//在项数组删除项(第n+1个)
+//在项数组删除项(n+1项)
 bool DeleteItem(List * list, int n);
 
 //指向的函数作用于项数组每一项一次
 void Traverse(const List * list, void (*pfun)(Item item));
+
+//清空项数组
+void EmptyTheList(List * list);
 
 #endif

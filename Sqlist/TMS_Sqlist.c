@@ -1,4 +1,4 @@
-#include "TMS_Sqlsit.h"
+#include "TMS_Sqlist.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -126,46 +126,36 @@ bool delInfo(List *plist)
         printf("Enter teacher's name(< 15 characters): ");
         scanf_s("%s", temp, 15);
         for (i = 0; i < plist->items; ++i)
-        {
             if (!strcmp(temp, plist->entries[i].name))
             {
                 DeleteItem(plist, i);
                 if (!status)
                     status = true;
             }
-        }
         break;
     case '2':
         printf("Enter teacher's lesson(< 15 characters): ");
         scanf_s("%s", temp, 15);
-        while (tNode)
-        {
-            if (!strcmp(tNode->item.lesson, temp))
+        for (i = 0; i < plist->items; ++i)
+            if (!strcmp(temp, plist->entries[i].lesson))
             {
-                DeleteItem(plist, i--);
+                DeleteItem(plist, i);
                 if (!status)
                     status = true;
             }
-            ++i;
-            tNode = tNode->next;
-        }
         break;
     case '3':
         printf("Enter teacher's name(< 15 characters): ");
         scanf_s("%s", temp, 15);
         printf("Enter teacher's lesson(< 15 characters): ");
         scanf_s("%s", temp2, 15);
-        while (tNode)
-        {
-            if (!strcmp(tNode->item.name, temp) && !strcmp(tNode->item.lesson, temp2))
+        for (i = 0; i < plist->items; ++i)
+            if (!strcmp(temp, plist->entries[i].name) && !strcmp(temp2, plist->entries[i].lesson))
             {
                 DeleteItem(plist, i--);
                 if (!status)
                     status = true;
             }
-            ++i;
-            tNode = tNode->next;
-        }
         break;
     case '4':
         break;
