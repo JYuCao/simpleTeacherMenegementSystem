@@ -6,7 +6,9 @@ int main(void)
 {
     List teachersList;
 
+    system("chcp 65001");
     InitializeList(&teachersList);
+    addSomeInfo(&teachersList);
     showMenu(&teachersList);
     EmptyTheList(&teachersList);
 

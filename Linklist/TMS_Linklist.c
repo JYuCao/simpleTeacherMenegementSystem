@@ -31,7 +31,7 @@ void showMenu(List *plist)
 
         printf("*******************************************************\n");
         printf("1. Add new information\n");
-        printf("2. List all informations\n");
+        printf("2. Search for informations\n");
         printf("3. Delete information\n");
         printf("4. Quit\n");
         printf("Enter your selection: ");
@@ -49,7 +49,10 @@ void showMenu(List *plist)
             pause();
             break;
         case '2':
-            showInfo(plist);
+            if (showInfo(plist))
+                printf("Search for information success!\n");
+            else
+                printf("Search for information failure!\n");
             pause();
             break;
         case '3':
@@ -99,10 +102,76 @@ bool addInfo(List *plist)
 }
 
 // 打印所有信息
-void showInfo(List *plist)
+bool showInfo(List *plist)
 {
-    puts("All information list:");
-    Traverse(plist, NodePrint);
+    char selected;
+    char temp[15], temp2[15];
+    Node *tNode = plist->head;
+    bool status = false;
+
+    printf("\nWhat do you want to based on to search for items?\n");
+    printf("1. List all infomations\n2. teachar's name\n3. teachar's lesson\n4. both name and lesson\n5. quit\n");
+    printf("Your selection: ");
+
+    selected = getchar();
+    eatline();
+    switch (selected)
+    {
+    case '1':
+            Traverse(plist, NodePrint);
+            status = true;
+            break;
+    case '2':
+        printf("Enter teacher's name(< 15 characters): ");
+        scanf_s("%s", temp, 15);
+        while (tNode)
+        {
+            if (!strcmp(tNode->item.name, temp))
+            {
+                NodePrint(tNode->item);
+                if (!status)
+                    status = true;
+            }
+            tNode = tNode->next;
+        }
+        break;
+    case '3':
+        printf("Enter teacher's lesson(< 15 characters): ");
+        scanf_s("%s", temp, 15);
+        while (tNode)
+        {
+            if (!strcmp(tNode->item.lesson, temp))
+            {
+                NodePrint(tNode->item);
+                if (!status)
+                    status = true;
+            }
+            tNode = tNode->next;
+        }
+        break;
+    case '4':
+        printf("Enter teacher's name(< 15 characters): ");
+        scanf_s("%s", temp, 15);
+        printf("Enter teacher's lesson(< 15 characters): ");
+        scanf_s("%s", temp2, 15);
+        while (tNode)
+        {
+            if (!strcmp(tNode->item.name, temp) && !strcmp(tNode->item.lesson, temp2))
+            {
+                NodePrint(tNode->item);
+                if (!status)
+                    status = true;
+            }
+            tNode = tNode->next;
+        }
+        break;
+    case '5':
+        break;
+    default:
+        puts("Error input!");
+        delay();
+    }
+    return status;
 }
 
 // 删除信息
@@ -177,6 +246,31 @@ bool delInfo(List *plist)
         delay();
     }
     return status;
+}
+
+// 初始添加信息
+void addSomeInfo(List * plist)
+{
+    AddItem((Item){"赵红军", "软件基础"}, plist);
+    AddItem((Item){"李朝海", "电路实验"}, plist);
+    AddItem((Item){"吕恕", "概率论与数理统计"}, plist);
+    AddItem((Item){"付炜", "电路实验"}, plist);
+    AddItem((Item){"刘普生", "大学物理"}, plist);
+    AddItem((Item){"张治国", "复变函数"}, plist);
+    AddItem((Item){"李朝霞", "大学物理实验"}, plist);
+    AddItem((Item){"张瑛", "信号与系统"}, plist);
+    AddItem((Item){"王守绪", "无机化学"}, plist);
+    AddItem((Item){"陈苑明", "分析化学"}, plist);
+    AddItem((Item){"胡文成", "物理化学"}, plist);
+    AddItem((Item){"唐泳", "程序设计基础"}, plist);
+    AddItem((Item){"赵睿", "仪器分析"}, plist);
+    AddItem((Item){"陈奋", "高级语言程序设计"}, plist);
+    AddItem((Item){"陈端兵", "程序设计基础"}, plist);
+    AddItem((Item){"赵红军", "信号与系统"}, plist);
+    AddItem((Item){"吕恕", "微积分"}, plist);
+    AddItem((Item){"李朝海", "电子工程设计之电子电路设计基础"}, plist);
+    AddItem((Item){"李朝海", "电路实验基础"}, plist);
+    AddItem((Item){"周国云", "综合课程实验"}, plist);
 }
 
 /* 内部函数定义 */
